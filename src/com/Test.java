@@ -17,8 +17,42 @@ public class Test {
         ks.add("oi");
         for(String k:ks){
         }
-        System.out.println(ks.toString());
-        System.out.println(StringUtils.strip(ks.toString().replaceAll("\"", "\'"),"[]"));
+//        System.out.println(ks.toString());
+//        System.out.println(StringUtils.strip(ks.toString().replaceAll("\"", "\'"),"[]"));
+        
+//        
+//        String[] k = new String[]{"id",
+//        		"debtName",
+//        		"debtType",
+//        		"tiexiRate",
+//        		"tiexiPeriod",
+//        		"tiexiUnit",
+//        		"minRate",
+//        		"MaxRate",
+//        		"leftRemainMoney",
+//        		"freeFeeDay",
+//        		"accuredJoinedMoney",
+//        		"accuredJoinedNum",
+//        		"debtDesc",
+//        		"isKZPlan",
+//        		"startMoney",
+//        		"incrMoney",
+//        		"addendusMoney",
+//        		"balance",
+//        		"feeRate"};
+//        for(String k0:k){
+//        	System.out.println("debtelidgeDetailRespData.set"+k0.substring(0,1).toUpperCase()+k0.substring(1,k0.length())+"();");
+//        	
+//        }
+        System.out.println("[");
+	        String [] convert = new String[]{"Long,id,//加入升薪宝计划的id","String,type,//类型","Double,rate,//利率","Double,minRate,//最大利率","Double,maxRate,//最小利率","Integer,holdPeriod,//持有期限","String,holdUnit,//单位","Double,joinMoney,//加入金额","String,joinTime,//加入时间","String,lockEndTime,//锁定结束时间","boolean,isMatch,//是否匹配成功"};
+	        System.out.println("      {");
+	        for(String c:convert){
+	        	String[] a = c.split("[*,*]");
+	        	System.out.println("        \""+a[1]+"\":\"\","+a[2]+",\""+a[0]+"\"");
+	        }
+	        System.out.println("      },");
+        System.out.println("]");
     }
     
     
