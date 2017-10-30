@@ -1,4 +1,4 @@
 1.加载File成为Spring中的Resource.
 2.DefaultListableFactory是不能够读取Resource的.
 3.XmlBeanFactory首先要读取Resource,将Resource转换为BeanDefinition
-	3.1  
+	3.1  怎么把Resource解析成BeanDefinition,重要的是这个解析过程
