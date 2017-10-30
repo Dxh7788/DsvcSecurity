@@ -9,5 +9,5 @@
         http://www.springframework.org/schema/context http://www.springframework.org/schema/context/spring-context-3.2.xsd">
         
     <context:component-scan base-package="com.dsvc"/>
-    <bean class="org.springframework.web.servlet.view.InternalResourceViewResolver" p:prefix="/views/" p:suffix=".jsp" />
+    <bean id ="internalRVR" class="org.springframework.web.servlet.view.InternalResourceViewResolver" p:prefix="/views/" p:suffix=".jsp" />
  </beans>
