@@ -1,9 +1,8 @@
 package com;
 
 import java.util.ArrayList;
+import java.util.Date;
 import java.util.List;
-
-import org.apache.commons.lang3.StringUtils;
 
 
 public class Test {
@@ -17,6 +16,8 @@ public class Test {
         ks.add("oi");
         for(String k:ks){
         }
+        
+        System.out.println(new Date().getTime());
 //        System.out.println(ks.toString());
 //        System.out.println(StringUtils.strip(ks.toString().replaceAll("\"", "\'"),"[]"));
         
@@ -45,7 +46,7 @@ public class Test {
 //        	
 //        }
         System.out.println("[");
-	        String [] convert = new String[]{"Long,id,//加入升薪宝计划的id","String,type,//类型","Double,rate,//利率","Double,minRate,//最大利率","Double,maxRate,//最小利率","Integer,holdPeriod,//持有期限","String,holdUnit,//单位","Double,joinMoney,//加入金额","String,joinTime,//加入时间","String,lockEndTime,//锁定结束时间","boolean,isMatch,//是否匹配成功"};
+	        String [] convert = new String[]{"String,id,//id","String,senderUserName,//发信人","String,recevierUserName,//收信人","String,title,//标题","String,content,//内容","String,receiveTime,//收信时间","String,status,//信息状态","String,isdelete,//是否删除"};
 	        System.out.println("      {");
 	        for(String c:convert){
 	        	String[] a = c.split("[*,*]");
