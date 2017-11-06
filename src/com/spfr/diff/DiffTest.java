@@ -21,8 +21,8 @@ public class DiffTest {
 //		DefaultListableBeanFactory dfactory = new DefaultListableBeanFactory();
 //		dfactory.registerBeanDefinition("",null);
 		MyBeanFactory factory = new MyBeanFactory(myResource);
-		InternalResourceViewResolver obj = (InternalResourceViewResolver)factory.getBean("internalRVR");
-		System.out.println(obj);
-		System.out.println(factory.getBean("internalRVR"));
+//		InternalResourceViewResolver obj = (InternalResourceViewResolver)factory.getBean("internalRVR");
+//		System.out.println(obj);
+//		System.out.println(factory.getBean("internalRVR"));
 	}
 }
