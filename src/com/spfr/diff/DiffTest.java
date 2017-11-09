@@ -23,6 +23,6 @@ public class DiffTest {
 		MyBeanFactory factory = new MyBeanFactory(myResource);
 //		InternalResourceViewResolver obj = (InternalResourceViewResolver)factory.getBean("internalRVR");
 //		System.out.println(obj);
-//		System.out.println(factory.getBean("internalRVR"));
+		System.out.println(factory.getBean("address"));
 	}
 }
