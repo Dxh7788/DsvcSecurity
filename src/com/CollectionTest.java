@@ -22,7 +22,9 @@ public class CollectionTest {
 		
 		ListIterator<String> liter = ids.listIterator();
 		liter.hasNext();
-		liter.next();
+		String temps = liter.next();
+		System.out.println(temps);
+		liter.set("sdf");
 		liter.add("235");
 		liter.hasPrevious();
 		liter.previous();
