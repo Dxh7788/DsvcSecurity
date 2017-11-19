@@ -1,0 +1,32 @@
+Map分析
+1.Map是包含键值映射的一组值的对象,不能包含重复的key,也就是说一个键最多对应一个值.
+2.Map接口用来替代Dictionary,Map只是一个接口,而Dictionary是一个抽象类而不是一个接口.
+3.Map接口提供了三个Collection的View,可以被转换为只包含Keys的Set,只包含Values的Set,以及包含<key,value>的Set集合.
+4.Map除了TreeMap外,底层的Iterator是Set的迭代,因此没有排序,而TreeMap使用了特殊的ITerator因此能保证顺序.
+5.不能使用Map自身作为key值外,Map不做其他限制.Map允许把自身作为value值,但是会提示一个严重的错误,那就是:the equals and hashCode methods are no longer well defined on such a map
+6.Map的所有实现类都包含两个构造器,一个无参数,一个以Map为参数.最后一个构造器能够复制原Map形成一个新的包含原值的Map
+7.
+8.Map并没有强制规定equals方法必须以key！=null并且两个key相等,Map才能相等.而是实现类根据自身情况去设定
+9.在Map的有些执行递归遍历的方法中会报一个self-referential instances where the map directly or
+ * indirectly contains itself错误,因为Map中包含了一个指向自身的示例.
+10.Map是Java Collections FrameWork中一个.是Java集合框架中的一部分.
+
+HashMap的Value可以指向自身.不会报错.
+Map家族很庞大.各有各的特色.
+一.首先排除掉1.8之后要支持的函数编程方法
+二.Map的主要方法
+size();
+isEmpty();
+containsKey(key);
+containsValue(value);
+get(key);
+put(key,value);
+remove(Object);
+putAll(Map);
+clear();
+keySet();
+values();
+EntrySet<K,V>();
+equals();
+hasCode();
+
