@@ -2,6 +2,8 @@ package com;
 
 import java.util.Objects;
 
+import org.apache.commons.lang3.StringUtils;
+
 import com.dsvc.model.Address;
 import com.dsvc.model.User;
 
@@ -43,6 +45,25 @@ public class ObjectsUtilTest {
 		System.out.println(Objects.hash(u1.getAddress(),u1.getName(),u1.getPwd()));
 		System.out.println(Objects.hash(u2.getAddress(),u2.getName(),u2.getPwd()));
 		System.out.println(Objects.hash(u1)==Objects.hash(u2));
-		
-	}
+		/**
+		 * 判空,总的来说,Objects工具类的判空操作比较初级,比起apache工具类的StringUtils类不够完善,StringUtils的isBlank不仅能判定字符串中是否为空,为空指针,还判定字符串中是否是空格.如下展示：
+		 * true
+		 *false
+		 *false
+		 *false
+		 *true
+		 *true
+		 *true
+		 *false
+		 * */
+		System.out.println(Objects.isNull(null));
+		System.out.println(Objects.isNull(""));
+		System.out.println(Objects.isNull(" "));
+		System.out.println(Objects.isNull("123  365"));
+		System.out.println(StringUtils.isBlank(""));
+		System.out.println(StringUtils.isBlank(null));
+		System.out.println(StringUtils.isBlank(" "));
+		StringUtils.isBlank("123  365");
+		System.out.println(StringUtils.isBlank("123  365"));
+3	}
 }
