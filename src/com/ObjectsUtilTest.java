@@ -65,5 +65,5 @@ public class ObjectsUtilTest {
 		System.out.println(StringUtils.isBlank(" "));
 		StringUtils.isBlank("123  365");
 		System.out.println(StringUtils.isBlank("123  365"));
-3	}
+	}
 }
