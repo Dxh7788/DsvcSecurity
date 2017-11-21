@@ -1,6 +1,9 @@
 package com;
 
+import java.util.ArrayList;
+import java.util.Enumeration;
 import java.util.HashMap;
+import java.util.Hashtable;
 import java.util.Map;
 
 /**
@@ -61,5 +64,16 @@ public class CollectionTest {
 		 * equals();
 		 * hasCode();
 		 */
+		//看一下HashTable和HashMap的区别
+		Hashtable<String,String> ht = new Hashtable<String, String>();
+		ht.put("123", "123");
+		ht.put("12", "12");
+		//同步方法
+		Enumeration<String> ss = ht.elements();
+		while(ss.hasMoreElements()){
+			System.out.println(ss.nextElement());
+		}
+		
+		System.out.println(new ArrayList());
 	}
 }

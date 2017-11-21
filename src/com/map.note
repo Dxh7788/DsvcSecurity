@@ -29,4 +29,12 @@ values();
 EntrySet<K,V>();
 equals();
 hasCode();
-
+三.HashTable与HashMap的区别
+1.都实现了Map接口
+2.HashMap可以使用null值作为key和value,而HashTable不接受空的key和value
+3.HashTable是线程安全的,只能一个线程操作完成并释放锁后在执行.而HashMap并不是线程安全的,如果同时间有两个线程一个做修改Map结构的操作,另一个查询就会提示并发修改错误.
+4.HashTable是先进后出,而HashMap是先进先出
+5.HashMap在一段时间后顺序会改变
+6.HashTable在JDK1.2以后被修改,并在JDK1.4后被弃用,JDK1.5之后如果有Map并发操作,使用ConcurrentHashMap
+7.HashTable使用Enumeration,而Map使用的是Iterator并且是快速失败的fail-fast.
+HashTable虽然被HashMap替代,但并不是不再使用,其中Properties是继承了HashTable而后,作为常用类出现在各种框架中.
