@@ -27,7 +27,6 @@ public class FileController {
 		this.request = request;
 		this.response = response;
 	}
-
 	@RequestMapping(value="/downloadFile",method=RequestMethod.GET)
 	@ResponseBody
 	public String downloadFile(){

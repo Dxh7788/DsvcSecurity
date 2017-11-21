@@ -1,9 +1,11 @@
 package com;
 
 import java.util.ArrayList;
+import java.util.Collections;
 import java.util.Enumeration;
 import java.util.HashMap;
 import java.util.Hashtable;
+import java.util.List;
 import java.util.Map;
 
 /**
@@ -75,5 +77,9 @@ public class CollectionTest {
 		}
 		
 		System.out.println(new ArrayList());
+		
+		//SingletonListµÄÊ¹ÓÃ
+		List<String> singletonList = Collections.singletonList(new String(""));
+		System.out.println(singletonList.size());
 	}
 }
