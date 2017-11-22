@@ -76,7 +76,7 @@ public class CollectionTest {
 			System.out.println(ss.nextElement());
 		}
 		
-		System.out.println(new ArrayList());
+		System.out.println(new ArrayList<String>());
 		
 		//SingletonListµÄÊ¹ÓÃ
 		List<String> singletonList = Collections.singletonList(new String(""));
