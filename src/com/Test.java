@@ -4,6 +4,9 @@ import java.util.ArrayList;
 import java.util.Date;
 import java.util.List;
 
+import org.apache.commons.lang3.ObjectUtils;
+import org.otk.model.User;
+
 
 public class Test {
 
@@ -54,7 +57,18 @@ public class Test {
 	        }
 	        System.out.println("      },");
         System.out.println("]");
+        System.out.println(ObjectUtils.identityToString(ks));
+        System.out.println(ks.hashCode());
+        System.out.println(Integer.toHexString(System.identityHashCode(ks)));
+        
+        User u = new User();
+        //hashCode和identityHashCode的值一致,identityHashCode可以作为hashCode的副本
+        System.out.println(u.hashCode());
+        System.out.println(System.identityHashCode(u));
+        //没有经过垃圾回收的话,jvm会保存new User()的引用,下次启动时identityHashCode保持不变
+        System.out.println(System.identityHashCode(new User()));
+        System.out.println(System.identityHashCode(new User()));
+        System.out.println(System.identityHashCode(new User()));
     }
-    
     
 }
