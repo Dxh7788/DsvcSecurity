@@ -17,7 +17,7 @@
     <!-- 配置Spring JDBC -->
     <bean id="dataSource" class="org.apache.commons.dbcp2.BasicDataSource">
     	<property name="driverClassName" value="com.mysql.jdbc.Driver"></property>
-    	<property name="url" value="jdbc:mysql://localhost:3306/jdbct"></property>
+    	<property name="url" value="jdbc:mysql://localhost:3306/jdbct?useUnicode=true&amp;characterEncoding=utf-8&amp;useSSL=false"></property>
     	<property name="username" value="root"></property>
     	<property name="password" value="anan1215"></property>
     </bean>
