@@ -16,4 +16,11 @@
     <bean id="address" class="com.dsvc.model.Address">
     	<property name="name" value="he.nan"></property>
     </bean>
+    <!-- 配置Spring JDBC -->
+    <bean id="dataSource" class="org.apache.commons.dbcp2.BasicDataSource">
+    	<property name="driverClassName" value=""></property>
+    	<property name="url" value="com.mysql.jdbc.Driver"></property>
+    	<property name="username" value="root"></property>
+    	<property name="password" value="root"></property>
+    </bean>
  </beans>
