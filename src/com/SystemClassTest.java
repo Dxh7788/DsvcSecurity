@@ -15,7 +15,7 @@ public class SystemClassTest {
 		 * */
 		User origin = new User();
 		User u = origin;
-		System.out.println(origin==u);
+		System.out.println("对象==的比较结果"+(origin==u));
 		/**
 		* 底层实现也是origin==u,使用的==
 		* ==和equals是一样的
@@ -66,11 +66,42 @@ public class SystemClassTest {
 		/**
 		 * 由此可见,Boolean值得==和equals能起到相同作用,虽然它们的原理不同,==代表所引用的值的地址是否一致,而equals代表值是否一致.
 		 * */
+		Integer ia = new Integer(7);
+		Integer ib = new Integer(7);
+		Integer ic = Integer.valueOf(7);
+		System.out.println(ia==ib);
+		System.out.println(ia==ic);
+		System.out.println(ia.equals(ic));
+		Double iac =new Double(0d);
+		Double iad =new Double(0d);
+		System.out.println(iac==iad);
+		System.out.println(iac.equals(iad));
+		/**
+		 * 虽然说字符串123保存在常量池中,但是经过new的过程之后,新生成的对象又开辟了新的空间
+		 * */
+		String is= new String("123");
+		String isb= new String("123");
+		System.out.println(is==isb);
+		/**
+		 * Object的==和equals
+		 * */
+		User u1= new User();
+		User u2=u1;
+		System.out.println(u1==u2);
+		System.out.println(u1.equals(u2));
+		
+		/**
+		 * 布尔值比较
+		 * */
 	}
 	void swap(Integer a,Integer b){
 		Integer temp =0;
 		temp = a;
 		a=b;
 		b=temp;
+	}
+	
+	Integer inc(Integer k,Integer l){
+		return 0;
 	}
 }
