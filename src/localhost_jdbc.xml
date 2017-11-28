@@ -21,4 +21,16 @@
     	<property name="username" value="root"></property>
     	<property name="password" value="anan1215"></property>
     </bean>
+    
+    <!--  配置redis-->
+    <bean id="jedisConnFactory" class="org.springframework.data.redis.connection.jedis.JedisConnectionFactory">
+    	<property name="hostName" value="localhost"></property>
+    	<property name="password" value="foobared"></property>
+    	<property name="port" value="6379"></property>
+    </bean>
+    <bean id="redisTemplate" class="org.springframework.data.redis.core.RedisTemplate">
+    	<property name="connectionFactory" ref="jedisConnFactory"></property>
+    </bean>
+    <bean id="jedisConfig" class="redis.clients.jedis.JedisPoolConfig">
+    </bean>
  </beans>

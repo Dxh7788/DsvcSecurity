@@ -17,6 +17,8 @@ import org.junit.runner.RunWith;
 import org.otk.model.Dor;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.dao.DataAccessException;
+import org.springframework.data.redis.core.RedisTemplate;
+import org.springframework.expression.common.TemplateAwareExpressionParser;
 import org.springframework.jdbc.core.JdbcTemplate;
 import org.springframework.jdbc.core.PreparedStatementCreator;
 import org.springframework.jdbc.core.ResultSetExtractor;
@@ -285,5 +287,12 @@ public class JdbcConnectionTest {
 		 * queryForMap(String sql,Object ...,int[] argtypes)
 		 * queryForMap(String sql,)
 		 * */
+	}
+	
+	@Autowired
+	RedisTemplate<String, String> template;
+	@Test
+	public void testJRedisConnection(){
+		template.opsForValue().set("kkk__k","123");
 	}
 }
