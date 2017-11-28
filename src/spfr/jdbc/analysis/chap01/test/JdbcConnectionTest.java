@@ -16,6 +16,7 @@ import org.junit.Test;
 import org.junit.runner.RunWith;
 import org.otk.model.Dor;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.beans.factory.annotation.Qualifier;
 import org.springframework.dao.DataAccessException;
 import org.springframework.data.redis.core.RedisTemplate;
 import org.springframework.expression.common.TemplateAwareExpressionParser;
@@ -290,6 +291,7 @@ public class JdbcConnectionTest {
 	}
 	
 	@Autowired
+	@Qualifier("template")
 	RedisTemplate<String, String> template;
 	@Test
 	public void testJRedisConnection(){
