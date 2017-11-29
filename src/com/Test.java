@@ -49,7 +49,7 @@ public class Test {
 //        	
 //        }
         System.out.println("[");
-	        String [] convert = new String[]{"String,id,//id","String,senderUserName,//发信人","String,recevierUserName,//收信人","String,title,//标题","String,content,//内容","String,receiveTime,//收信时间","String,status,//信息状态","String,isdelete,//是否删除"};
+	        String [] convert = new String[]{"String,id,//id","String,senderUserName,//锟斤拷锟斤拷锟斤拷","String,recevierUserName,//锟斤拷锟斤拷锟斤拷","String,title,//锟斤拷锟斤拷","String,content,//锟斤拷锟斤拷","String,receiveTime,//锟斤拷锟斤拷时锟斤拷","String,status,//锟斤拷息状态","String,isdelete,//锟角凤拷删锟斤拷"};
 	        System.out.println("      {");
 	        for(String c:convert){
 	        	String[] a = c.split("[*,*]");
@@ -62,13 +62,17 @@ public class Test {
         System.out.println(Integer.toHexString(System.identityHashCode(ks)));
         
         User u = new User();
-        //hashCode和identityHashCode的值一致,identityHashCode可以作为hashCode的副本
+        //hashCode锟斤拷identityHashCode锟斤拷值一锟斤拷,identityHashCode锟斤拷锟斤拷锟斤拷为hashCode锟侥革拷锟斤拷
         System.out.println(u.hashCode());
         System.out.println(System.identityHashCode(u));
-        //没有经过垃圾回收的话,jvm会保存new User()的引用,下次启动时identityHashCode保持不变
         System.out.println(System.identityHashCode(new User()));
         System.out.println(System.identityHashCode(new User()));
         System.out.println(System.identityHashCode(new User()));
+        
+        String s0="invest_success,join_novice_plan_success,join_plan_success,join_roll_plan_success,join_twenty_one_plan_success,withdraw_fail,withdraw_success,recharge_success,advance_repay,normal_repay,overdue_repay,invest_rebate_Transfered,coupon_transfered,platform_reward,platform_tiexi_transfer,reward_money_transfered,exit_sheng_xin_bao_plan,give_money_to_borrower";
+        String [] ss0=s0.split("[*,*]");
+        System.out.println(ss0.length);
+        
     }
     
 }

@@ -29,5 +29,8 @@
     <!-- 配置redisTemplate -->
     <bean id="template" class="org.springframework.data.redis.core.RedisTemplate">
     	<property name="connectionFactory" ref="jedisConnFactory"></property>
+    	<property name="keySerializer" ref="subDefaultRedisSerializer"></property>
+    	<property name="valueSerializer" ref="subDefaultRedisSerializer"></property>
     </bean>
+    <bean id="subDefaultRedisSerializer" class="org.springframework.data.redis.serializer.StringRedisSerializer"></bean>
  </beans>
