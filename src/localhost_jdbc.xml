@@ -7,6 +7,8 @@
 	xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans-3.2.xsd
         http://www.springframework.org/schema/mvc http://www.springframework.org/schema/mvc/spring-mvc-3.2.xsd
         http://www.springframework.org/schema/context http://www.springframework.org/schema/context/spring-context-3.2.xsd">
+        
+        
     <!-- <bean id="user" class="com.dsvc.model.User">
     	<property name="name" value="123"></property>
     	<property name="address" ref="address"></property>
@@ -33,4 +35,6 @@
     	<property name="valueSerializer" ref="subDefaultRedisSerializer"></property>
     </bean>
     <bean id="subDefaultRedisSerializer" class="org.springframework.data.redis.serializer.StringRedisSerializer"></bean>
+    
+    <bean class="com.config.TestConfig"></bean>
  </beans>
