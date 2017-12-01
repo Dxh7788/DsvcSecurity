@@ -1,5 +1,6 @@
 package spfr.jdbc.analysis.chap01.test;
 
+import java.util.ArrayList;
 import java.util.Iterator;
 import java.util.List;
 
@@ -10,10 +11,16 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Qualifier;
 import org.springframework.dao.DataAccessException;
 import org.springframework.data.redis.connection.RedisConnection;
+import org.springframework.data.redis.connection.SortParameters.Order;
+import org.springframework.data.redis.connection.SortParameters.Range;
+import org.springframework.data.redis.core.HashOperations;
 import org.springframework.data.redis.core.RedisCallback;
 import org.springframework.data.redis.core.RedisOperations;
 import org.springframework.data.redis.core.RedisTemplate;
 import org.springframework.data.redis.core.SessionCallback;
+import org.springframework.data.redis.core.query.SortQuery;
+import org.springframework.data.redis.core.query.SortQueryBuilder;
+import org.springframework.data.redis.core.script.RedisScript;
 import org.springframework.data.redis.serializer.RedisSerializer;
 import org.springframework.data.redis.serializer.SerializationException;
 import org.springframework.test.context.ContextConfiguration;
@@ -129,4 +136,80 @@ public class RedisLrnTest {
 			}
 		});
 	}
+	
+	@Test
+	public void testHash(){
+		HashOperations ho = template.opsForHash();
+		/**
+		 * Hash的数值操作
+		 * ho.put(key, hashKey, value);
+		 * ho.putAll(key, m);
+		 * ho.putIfAbsent(key, hashKey, value);
+		 * 总的来说Map有的常用操作Spring的RedisTemplate都按惯用方式封装
+		 * ho.entries(key);Map的键值Set集合
+		 * ho.values(key);Map的所有values
+		 * ho.keys(key);Map的所有keys
+		 * ****
+		 * ho.get(key, hashKey);
+		 * ho.multiGet(key, hashKeys);获取多个键值的值
+		 **/
+		/**
+		 * 暂时不研究ScanOptions,留中 
+		 * ScanOptions so = new ScanOptionsBuilder().build();
+		 * ho.scan("123", so);
+		 */
+		
+		
+		
+		
+		
+		
+		
+		/**=============================================
+		 * 看一下Hash的Operations
+		 * =========================================
+		 * 留一个起子,template.execute(action)和template.opsForHash().getOperations().execute(action)的区别
+		 * */
+//		ho.getOperations().executePipelined(session);
+		template.execute(new RedisCallback<Object>() {
+			@Override
+			public Object doInRedis(RedisConnection connection) throws DataAccessException {
+				return null;
+			}
+		});
+		template.opsForHash().getOperations().execute(new RedisCallback<Object>(){
+			@Override
+			public Object doInRedis(RedisConnection connection) throws DataAccessException {
+				return null;
+			}
+		});
+		
+		SortQueryBuilder builder = SortQueryBuilder.sort("localtest_dxh_hash_key");
+//		builder.get(getPattern)
+		template.opsForHash().getOperations().boundHashOps("localtest_dxh_hash_key");
+	}
+	
+	/**
+	 * @Test
+	public void testLuaScript(){
+		List<String> keys = new ArrayList<String>(0);
+		keys.add("localtest_dxh_hash_key");
+		keys.add("localtest_dxh_list_key");
+		
+		template.execute(new RedisScript<User>() {
+			@Override
+			public String getSha1() {
+				return null;
+			}
+			@Override
+			public Class<User> getResultType() {
+				return null;
+			}
+			@Override
+			public String getScriptAsString() {
+				return null;
+			}},keys,"123","123");
+	}
+	*/
+	
 }
