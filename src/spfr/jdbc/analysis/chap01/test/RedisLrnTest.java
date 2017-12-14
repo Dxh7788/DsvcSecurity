@@ -73,7 +73,23 @@ public class RedisLrnTest {
 				return 0;
 			}
 		});
-		System.out.println(users);
+		/**
+		 * 测试分页
+		 * */
+		int pageNo = 1;
+		int size =3;
+		Integer length = users.size();
+		Integer start = (pageNo-1)*size;
+		System.out.println("start:  "+start);
+		Integer end = pageNo*size;
+		if(end>length){
+			end = length;
+		}
+		if(start>length){
+			start = length;
+		}
+		System.out.println("end:  "+end);
+		System.out.println(users.subList(start, end));
 	}
 	@Test
 	public void testList(){
