@@ -90,6 +90,7 @@ public class RedisLrnTest {
 		}
 		System.out.println("end:  "+end);
 		System.out.println(users.subList(start, end));
+		System.out.println(users);
 	}
 	@Test
 	public void testList(){
