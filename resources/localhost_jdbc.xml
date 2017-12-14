@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xmlns="http://www.springframework.org/schema/beans"
+	xmlns:mvc="http://www.springframework.org/schema/mvc" 
+	xmlns:p="http://www.springframework.org/schema/p"
+	xmlns:context="http://www.springframework.org/schema/context"
+	xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans-3.2.xsd
+        http://www.springframework.org/schema/mvc http://www.springframework.org/schema/mvc/spring-mvc-3.2.xsd
+        http://www.springframework.org/schema/context http://www.springframework.org/schema/context/spring-context-3.2.xsd">
+        
+        
+    <!-- <bean id="user" class="com.dsvc.model.User">
+    	<property name="name" value="123"></property>
+    	<property name="address" ref="address"></property>
+    </bean>
+    <bean id="address" class="com.dsvc.model.Address">
+    	<property name="name" value="he.nan"></property>
+    </bean> -->
+    <!-- 配置Spring JDBC -->
+    <bean id="dataSource" class="org.apache.commons.dbcp2.BasicDataSource">
+    	<property name="driverClassName" value="com.mysql.jdbc.Driver"></property>
+    	<property name="url" value="jdbc:mysql://localhost:3306/jdbct?useUnicode=true&amp;characterEncoding=utf-8&amp;useSSL=false"></property>
+    	<property name="username" value="root"></property>
+    	<property name="password" value="anan1215"></property>
+    </bean>
+    
+    <!--  该版本的redis的password必须手动配置-->
+    <bean id="jedisConnFactory" class="org.springframework.data.redis.connection.jedis.JedisConnectionFactory">
+    	<property name="password" value="foobared"></property>
+    </bean>
+    <!-- 配置redisTemplate -->
+    <bean id="template" class="org.springframework.data.redis.core.RedisTemplate">
+    	<property name="connectionFactory" ref="jedisConnFactory"></property>
+    	<property name="keySerializer" ref="subDefaultRedisSerializer"></property>
+    	<property name="valueSerializer" ref="subDefaultRedisSerializer"></property>
+    </bean>
+    <bean id="subDefaultRedisSerializer" class="org.springframework.data.redis.serializer.StringRedisSerializer"></bean>
+    
+    <bean class="com.config.TestConfig"></bean>
+ </beans>

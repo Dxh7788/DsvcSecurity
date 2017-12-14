@@ -7,7 +7,6 @@ import javax.sql.DataSource;
 
 import org.junit.Test;
 import org.junit.runner.RunWith;
-import org.otk.model.Dor;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.jdbc.core.RowCallbackHandler;
 import org.springframework.jdbc.core.namedparam.NamedParameterJdbcTemplate;
@@ -15,7 +14,7 @@ import org.springframework.test.context.ContextConfiguration;
 import org.springframework.test.context.junit4.SpringJUnit4ClassRunner;
 
 @RunWith(SpringJUnit4ClassRunner.class)
-@ContextConfiguration({"classpath:/localhost_jdbc.xml"})
+@ContextConfiguration({"classpath:/resources/localhost_jdbc.xml"})
 public class NamedParameterJdbcTemplateTest {
 	@Autowired
 	DataSource dataSource;

@@ -73,20 +73,20 @@
 	    <artifactId>mysql-connector-java</artifactId>
 	    <version>5.1.44</version>
 	</dependency>
-	<!-- https://mvnrepository.com/artifact/org.springframework/spring-test -->
+	<!--&lt;!&ndash; https://mvnrepository.com/artifact/org.springframework/spring-test &ndash;&gt;
 	<dependency>
 	    <groupId>org.springframework</groupId>
 	    <artifactId>spring-test</artifactId>
 	    <version>4.1.9.RELEASE</version>
 	    <scope>test</scope>
 	</dependency>
-	<!-- https://mvnrepository.com/artifact/junit/junit -->
+	&lt;!&ndash; https://mvnrepository.com/artifact/junit/junit &ndash;&gt;
 	<dependency>
 	    <groupId>junit</groupId>
 	    <artifactId>junit</artifactId>
 	    <version>4.10</version>
 	    <scope>test</scope>
-	</dependency>
+	</dependency>-->
 	<dependency>
 	    <groupId>org.apache.commons</groupId>
 	    <artifactId>commons-pool2</artifactId>
@@ -110,7 +110,17 @@
 		<artifactId>jackson-databind</artifactId>
 	 	<version>2.6.6</version>
 	</dependency>
-    </dependencies>
+	  <dependency>
+		  <groupId>org.springframework</groupId>
+		  <artifactId>spring-test</artifactId>
+		  <version>4.3.8.RELEASE</version>
+	  </dependency>
+	  <dependency>
+		  <groupId>junit</groupId>
+		  <artifactId>junit</artifactId>
+		  <version>4.12</version>
+	  </dependency>
+  </dependencies>
   <build>
     <sourceDirectory>src</sourceDirectory>
     <plugins>
