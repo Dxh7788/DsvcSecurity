@@ -1,8 +1,11 @@
 package spfr.jdbc.analysis.chap01.test;
 
-import java.util.ArrayList;
+import java.util.Collections;
+import java.util.Comparator;
+import java.util.HashSet;
 import java.util.Iterator;
 import java.util.List;
+import java.util.Set;
 
 import org.junit.Test;
 import org.junit.runner.RunWith;
@@ -12,17 +15,17 @@ import org.springframework.beans.factory.annotation.Qualifier;
 import org.springframework.dao.DataAccessException;
 import org.springframework.data.redis.connection.RedisConnection;
 import org.springframework.data.redis.connection.SortParameters.Order;
-import org.springframework.data.redis.connection.SortParameters.Range;
+import org.springframework.data.redis.core.BulkMapper;
 import org.springframework.data.redis.core.HashOperations;
 import org.springframework.data.redis.core.RedisCallback;
 import org.springframework.data.redis.core.RedisOperations;
 import org.springframework.data.redis.core.RedisTemplate;
 import org.springframework.data.redis.core.SessionCallback;
-import org.springframework.data.redis.core.query.SortQuery;
 import org.springframework.data.redis.core.query.SortQueryBuilder;
-import org.springframework.data.redis.core.script.RedisScript;
+import org.springframework.data.redis.serializer.Jackson2JsonRedisSerializer;
 import org.springframework.data.redis.serializer.RedisSerializer;
 import org.springframework.data.redis.serializer.SerializationException;
+import org.springframework.data.redis.support.collections.DefaultRedisList;
 import org.springframework.test.context.ContextConfiguration;
 import org.springframework.test.context.junit4.SpringJUnit4ClassRunner;
 
@@ -37,6 +40,41 @@ public class RedisLrnTest {
 	@Autowired
 	RedisTemplate<String, User> redisTemplateForUser;
 	
+	@Test
+	public void testList2(){
+		Jackson2JsonRedisSerializer<User> ustr = new Jackson2JsonRedisSerializer<>(User.class);
+//		User u0 = new User(123,"2");
+//		User u1 = new User(125,"1");
+//		User u2 = new User(128,"0");
+//		User u3 = new User(129,"4");
+//		User u4 = new User(127,"3");
+//		User u5 = new User(126,"5");
+//		
+//		redisTemplateForUser.opsForList().leftPush("localtest_dxh_list_key", u0);
+//		redisTemplateForUser.opsForList().leftPush("localtest_dxh_list_key", u1);
+		
+		/**
+		 * 排序
+		 * */
+		List<User> users = redisTemplateForUser.opsForList().range("localtest_dxh_list_key",0,-1);
+		Collections.sort(users,new Comparator<User>() {
+
+			@Override
+			public int compare(User user0, User user1) {
+				if(null!=user0&&null!=user1){
+					if(Long.valueOf(user0.getId())<Long.valueOf(user1.getId())){
+						return -1;
+					}else if(Long.valueOf(user0.getId())>Long.valueOf(user1.getId())){
+						return 1;
+					}else{
+						return 0;
+					}
+				}
+				return 0;
+			}
+		});
+		System.out.println(users);
+	}
 	@Test
 	public void testList(){
 		/**		
@@ -211,5 +249,26 @@ public class RedisLrnTest {
 			}},keys,"123","123");
 	}
 	*/
-	
+	@Test
+	public void testValueString(){
+		Set<String> keys = new HashSet<>();
+		template.opsForValue().multiGet(keys);
+//		redisTemplateForUser.opsForList().remove("localtest_dxh_list_key", 1, new User(123,"1"));
+		System.out.println(template.opsForValue().getAndSet("localtest_dxh_value_key", "asfdsafasdfdas"));
+	}
+	@Test
+	public void testZSet(){
+//		template.opsForList().leftPush("localtest_dxh_listbk_key", "123");
+//		template.opsForList().leftPush("localtest_dxh_listbk_key", "124");
+//		template.opsForList().leftPush("localtest_dxh_listbk_key", "125");
+		DefaultRedisList<String> drl = new DefaultRedisList<String>("localtest_dxh_listbk_key",template);
+		Iterator<String> iterator = drl.iterator();
+		while(iterator.hasNext()){
+			if(iterator.next().equals("123")){
+				iterator.remove();
+			}
+		}
+		drl.setMaxSize(100);
+		System.out.println(drl.size());
+	}
 }
