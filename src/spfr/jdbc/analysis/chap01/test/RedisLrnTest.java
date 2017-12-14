@@ -146,6 +146,7 @@ public class RedisLrnTest {
 		/**
 		 * 
 		 * */
+		redisTemplateForUser.opsForList().getOperations().multi();
 		List<User> users = redisTemplateForUser.opsForList().range("localtest_dxh_list_key", 0, -1);
 		Iterator<User> iter = users.iterator();
 		/**while(iter.hasNext()){
